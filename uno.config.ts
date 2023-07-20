@@ -7,7 +7,9 @@ export default defineConfig({
     presetWind(),
     presetWebFonts({
       provider: "google",
-      fonts: {},
+      fonts: {
+        sans: "Inter:400,700,800",
+      },
     }),
     presetClark(),
   ],
@@ -17,7 +19,8 @@ export default defineConfig({
   },
   preflights: [
     {
-      getCSS: () => ":root { font-size: 62.5%; }",
+      getCSS: () =>
+        ":root { font-size: 62.5%; font-family: Inter, sans-serif; background-color: white }",
     },
   ],
   theme: {},

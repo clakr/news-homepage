@@ -1,12 +1,20 @@
-import { Preset } from 'unocss';
+import { Preset } from "unocss";
 
 export default function presetClark(): Preset {
   return {
-    name: 'presetClark',
+    name: "presetClark",
     theme: {
       breakpoints: {
         tablet: "768px",
         desktop: "1440px",
+      },
+      colors: {
+        "dark-space-blue": "#00001a",
+        gunmetal: "#5E607A",
+        "almost-white": "#FFFDFA",
+        "light-vermillion": "#F15D51",
+        yellow: "#E9AA52",
+        silver: "#C5C6CE",
       },
     },
     rules: [
@@ -137,6 +145,37 @@ export default function presetClark(): Preset {
           "column-gap": `${value}rem`,
         }),
       ],
-    ]
-  }
+      [
+        /^gap-y-([\d.-]+)$/,
+        ([, value]) => ({
+          "grid-row-gap": `${value}rem`,
+          "row-gap": `${value}rem`,
+        }),
+      ],
+      [
+        /^p-([\d.-]+)\/([\d.-]+)$/,
+        ([, blockValue, inlineValue]) => ({
+          "padding-block": `${blockValue}rem`,
+          "padding-inline": `${inlineValue}rem`,
+        }),
+      ],
+      [
+        /^space-y-([\d.-]+)$/,
+        ([, value]) => ({
+          "--un-space-y-reverse": 0,
+          "margin-top": `calc(${value}rem * calc(1 - var(--un-space-y-reverse)))`,
+          "margin-bottom": `calc(${value}rem * var(--un-space-y-reverse))`,
+        }),
+      ],
+      [
+        /^gap-([\d.-]+)\/([\d.-]+)$/,
+        ([, rowValue, columnValue]) => ({
+          "grid-row-gap": `${rowValue}rem`,
+          "row-gap": `${rowValue}rem`,
+          "grid-column-gap": `${columnValue}rem`,
+          "column-gap": `${columnValue}rem`,
+        }),
+      ],
+    ],
+  };
 }

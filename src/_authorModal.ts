@@ -1,5 +1,5 @@
-import "./_authorModal.css"
-import { Plugin } from "vue";;
+import "./_authorModal.css";
+import { Plugin } from "vue";
 
 function changeTextOrSource(
   element: HTMLElement | HTMLAnchorElement | null,
@@ -50,11 +50,27 @@ function keyDownListener(
   }
 }
 
+function changeKeyboardBtnBackgroundColor() {
+  const html = document.querySelector("html");
+  if (!html) return;
+
+  const btnKeyboard = document.querySelector<HTMLButtonElement>(".keyboard");
+  if (!btnKeyboard) return;
+
+  btnKeyboard.style.backgroundColor =
+    window.getComputedStyle(html).backgroundColor;
+}
+
 const AuthorModalPlugin: Plugin = {
-  install() {
+  install(app) {
+    app.provide(
+      "changeKeyboardBtnBackgroundColor",
+      changeKeyboardBtnBackgroundColor
+    );
+
     const isMac = window.navigator.platform === "MacIntel";
 
-  const markup = `
+    const markup = `
     <button type='button' class="keyboard">
       Project Information
       ${
@@ -137,36 +153,34 @@ const AuthorModalPlugin: Plugin = {
     </div>
   `;
 
-  document.body.insertAdjacentHTML("beforeend", markup);
+    document.body.insertAdjacentHTML("beforeend", markup);
 
-  const modal = document.querySelector<HTMLDivElement>(".modal");
-  if (!modal) return;
+    const modal = document.querySelector<HTMLDivElement>(".modal");
+    if (!modal) return;
 
-  changeProjectInformation();
+    changeProjectInformation();
 
-  document
-    .querySelector<HTMLButtonElement>(".modal__close")
-    ?.addEventListener("click", () => {
-      modal.style.display = "none";
+    document
+      .querySelector<HTMLButtonElement>(".modal__close")
+      ?.addEventListener("click", () => {
+        modal.style.display = "none";
+      });
+
+    const html = document.querySelector("html");
+    if (!html) return;
+
+    const btnKeyboard = document.querySelector<HTMLButtonElement>(".keyboard");
+    if (!btnKeyboard) return;
+
+    btnKeyboard.addEventListener("click", function () {
+      modal.style.display = "block";
     });
 
-  const html = document.querySelector("html");
-  if (!html) return;
-
-  const btnKeyboard = document.querySelector<HTMLButtonElement>(".keyboard");
-  if (!btnKeyboard) return;
-
-  btnKeyboard.addEventListener("click", function () {
-    modal.style.display = "block";
-  });
-
-  window.addEventListener("load", function () {
-    btnKeyboard.style.backgroundColor =
-      window.getComputedStyle(html).backgroundColor;
-  });
-  document.addEventListener("keydown", keyDownListener.bind(modal));
+    window.addEventListener("load", function () {
+      console.log("RUN??");
+    });
+    document.addEventListener("keydown", keyDownListener.bind(modal));
   },
 };
 
 export default AuthorModalPlugin;
-

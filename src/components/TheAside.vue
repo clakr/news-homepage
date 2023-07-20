@@ -1,6 +1,6 @@
 <template>
-  <aside class="bg-dark-space-blue c-white py-2.4 px-2.1 desktop:(p-3.2/2.4)">
-    <h3 class="c-yellow fs-3.2 fw-700 lh-3.2 desktop:(fs-4 lh-4)">New</h3>
+  <section class="bg-dark-space-blue c-white py-2.4 px-2.1 laptop:(p-3.2/2.4)">
+    <h3 class="c-yellow fs-3.2 fw-700 lh-3.2 laptop:(fs-4 lh-4)">New</h3>
     <article
       v-for="(article, index) in articles"
       :key="index"
@@ -13,7 +13,7 @@
         {{ article.description }}
       </p>
     </article>
-  </aside>
+  </section>
 </template>
 
 <script lang="ts" setup>

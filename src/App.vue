@@ -18,13 +18,13 @@ onBeforeMount(() => {
 
 <template>
   <TheNav />
-  <main
-    class="pt-.4 px-1.6 pb-8 grid gap-y-6.4 max-w-60 mx-auto desktop:(grid-cols-[73rem_1fr] gap-7.2/3 pt-0 px-16.5 pb-13 max-w-unset)"
+  <div
+    class="pt-.4 px-1.6 pb-8 grid gap-y-6.4 max-w-60 mx-auto laptop:(grid-cols-[1fr_35rem] gap-7.2/3 pt-0 px-16.5 pb-13 max-w-unset)"
   >
     <TheHero />
     <TheAside />
     <TheList />
-  </main>
+  </div>
 </template>
 
 <style scoped></style>

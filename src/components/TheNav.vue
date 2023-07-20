@@ -1,14 +1,14 @@
 <template>
   <nav
-    class="px-1.6 py-2.8 flex justify-between desktop:(pt-8.9 pb-5.51 px-16.5)"
+    class="px-1.6 py-2.8 flex justify-between laptop:(pt-8.9 pb-5.51 px-16.5)"
   >
     <img
-      class="w-4.4977 h-2.8 desktop:(w-6.4092 h-3.99)"
+      class="w-4.4977 h-2.8 laptop:(w-6.4092 h-3.99)"
       src="/logo.svg"
       alt=""
     />
     <ul
-      class="hidden desktop:(flex) c-gunmetal fs-1.5 lh-2.6 gap-x-4 items-center"
+      class="hidden laptop:(flex) c-gunmetal fs-1.5 lh-2.6 gap-x-4 items-center"
     >
       <li>Home</li>
       <li>New</li>
@@ -16,7 +16,7 @@
       <li>Trending</li>
       <li>Categories</li>
     </ul>
-    <button class="desktop:hidden" @click="toggleMenu">
+    <button class="laptop:hidden" title="Menu Button" @click="toggleMenu">
       <img class="w-4 h-1.7" src="/icon-menu.svg" alt="" />
     </button>
   </nav>
@@ -37,7 +37,7 @@
       isMenuOpen ? 'translate-x-0' : 'translate-x-full',
     ]"
   >
-    <button class="self-end" @click="toggleMenu">
+    <button class="self-end" title="Close Menu Button" @click="toggleMenu">
       <img src="/icon-menu-close.svg" alt="" />
     </button>
     <ul class="c-dark-space-blue fs-1.8 lh-2.4 space-y-2.4">

@@ -18,7 +18,9 @@ onBeforeMount(() => {
 
 <template>
   <TheNav />
-  <main class="pt-.4 px-1.6 pb-8 grid gap-y-6.4">
+  <main
+    class="pt-.4 px-1.6 pb-8 grid gap-y-6.4 desktop:(grid-cols-[73rem_1fr] gap-7.2/3 pt-0 px-16.5 pb-13)"
+  >
     <TheHero />
     <TheAside />
     <TheList />

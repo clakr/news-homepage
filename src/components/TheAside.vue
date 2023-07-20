@@ -1,6 +1,6 @@
 <template>
-  <aside class="bg-dark-space-blue c-white py-2.4 px-2.1">
-    <h3 class="c-yellow fs-3.2 fw-700 lh-3.2">New</h3>
+  <aside class="bg-dark-space-blue c-white py-2.4 px-2.1 desktop:(p-3.2/2.4)">
+    <h3 class="c-yellow fs-3.2 fw-700 lh-3.2 desktop:(fs-4 lh-4)">New</h3>
     <article
       v-for="(article, index) in articles"
       :key="index"
@@ -9,7 +9,9 @@
       <h4 class="c-almost-white fs-2 fw-800 lh-2.4">
         {{ article.title }}
       </h4>
-      <p class="c-silver fs-1.5 lh-2.6">{{ article.description }}</p>
+      <p class="c-silver fs-1.5 lh-2.6">
+        {{ article.description }}
+      </p>
     </article>
   </aside>
 </template>

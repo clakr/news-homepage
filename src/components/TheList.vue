@@ -1,5 +1,5 @@
 <template>
-  <ul class="space-y-3.2">
+  <ul class="grid gap-y-3.2 desktop:(col-span-2 grid-cols-3 gap-0/3)">
     <li
       v-for="(listItem, index) in ListItems"
       :key="index"

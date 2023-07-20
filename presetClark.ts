@@ -176,6 +176,12 @@ export default function presetClark(): Preset {
           "column-gap": `${columnValue}rem`,
         }),
       ],
+      [
+        /^p-([\d.-]+)$/,
+        ([, value]) => ({
+          padding: `${value}rem`,
+        }),
+      ],
     ],
   };
 }

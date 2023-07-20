@@ -1,5 +1,5 @@
 <template>
-  <section class="grid gap-y-1.6 desktop:(grid-cols-2 gap-3)">
+  <section class="grid gap-y-1.6 max-w-60 desktop:(grid-cols-2 gap-3)">
     <picture class="desktop:(col-span-2)">
       <source media="(min-width: 1440px)" srcset="/image-web-3-desktop.jpg" />
       <img src="/image-web-3-mobile.jpg" alt="" />

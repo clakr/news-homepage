@@ -26,4 +26,5 @@ export default defineConfig({
   theme: {},
   shortcuts: {},
   rules: [],
+  safelist: ["sr-only"],
 });
